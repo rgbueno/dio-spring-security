@@ -11,14 +11,14 @@ public class WelcomeController {
 		return "Bem vindo à minha API Spring boot!";
 	}
 	
-	@GetMapping
-	@PreAuthorize("hasAnyRole('managers', 'users'")
+	@GetMapping("/users")
+	@PreAuthorize("hasAnyRole('MANAGERS', 'USERS')")
 	public String users() {
 		return "Authorized user";
 	}
 	
-	@GetMapping
-	@PreAuthorize("hasRole('managers')")
+	@GetMapping("/managers")
+	@PreAuthorize("hasRole('MANAGERS')")
 	public String managers() {
 		return "Authorized manager";
 	}
